@@ -1,24 +1,24 @@
-#include "timer2.h"
-#include "ui_timer2.h"
+#include "timer.h"
+#include "ui_timer.h"
 
-Timer2::Timer2(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Timer2)
+Timer::Timer(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Timer)
 {
     ui->setupUi(this);
-
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(MySlot()));
 
     timer->start(10000);
+    this->ui->lineEdit->setText("");
 }
 
-Timer2::~Timer2()
+Timer::~Timer()
 {
     delete ui;
 }
 
-void Timer2::MySlot(){
+void Timer::MySlot(){
 
     this->ui->lineEdit->setText("Enes");
 }

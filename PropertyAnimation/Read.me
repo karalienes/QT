@@ -1,0 +1,49 @@
+Qt, GUI'miz için animasyonlar oluşturmak için bize birkaç farklı alt sistem sağlar.
+Bunlar;
+
+Timer, timeline, animation framework, state machine framework, and graphics view framework:
+
+        TİMER
+
+Qt bize tekrarlayan ve tek vuruşlu zamanlayıcılar sağlar. Zaman aşımı değeri
+ulaşıldığında, Qt'nin sinyal ve yuvası aracılığıyla bir olay geri çağırma işlevi tetiklenecektir.
+mekanizma. Özellikleri (renk, konum, oluşturmak için GUI öğenizin belirli bir aralıkta ölçeği vb.
+bir animasyon.
+
+
+
+        TİMELİNE
+
+Zaman çizelgesi, bir GUI öğesini canlandırmak için periyodik olarak bir yuvayı çağırır. Tekrarlayan bir zamanlayıcıya oldukça benzer,
+ancak zaman çizelgesi, yuva tetiklendiğinde her zaman aynı şeyi yapmak yerine, farklı şeyler (örneğin ofset) yapabilmeniz için yuvaya
+mevcut kare dizinini belirtmek için bir değer sağlar. sprite'ın farklı bir alanına levha) verilen değere göre.
+
+
+
+        ANİMATİON FRAMEWORK
+
+
+Animasyon çerçevesi, bir GUI öğesini canlandırmayı sağlar
+özelliklerinin canlandırılmasına izin vererek kolaydır. Animasyonlar kullanılarak kontrol edilir
+gevşeme eğrileri. Hareket hızı eğrileri, aracın hızının ne olduğunu kontrol eden bir işlevi tanımlar.
+animasyon, farklı hızlanma ve yavaşlama modelleriyle sonuçlanmalıdır.
+Qt tarafından desteklenen hareket hızı eğrisi türleri şunları içerir: doğrusal, ikinci dereceden, kübik, dörtlü,
+sinüs, üstel, dairesel ve elastik
+
+
+        STATE MACHİNE FRAMEWORK
+
+
+Qt bize oluşturmak ve yürütmek için sınıflar sağlar.
+her bir GUI öğesinin bir durumdan diğerine hareket etmesine izin veren durum grafikleri
+sinyallerle tetiklenir. Durum makinesi çerçevesindeki durum grafiği hiyerarşiktir,
+bu, her durumun diğer durumların içinde de yuvalanabileceği anlamına gelir.
+
+
+        GRAPHİCS VİEW FRAMEWORK
+
+
+Grafik görünüm çerçevesi güçlü bir grafiktir.
+çok sayıda özel yapım 2D görselleştirme ve etkileşim için motor
+grafik öğeler. GUI'nizi çizmek için grafik görünüm çerçevesini kullanabilirsiniz ve
+deneyimli bir programcıysanız, onları tamamen manuel bir şekilde canlandırın

@@ -25,10 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    drawing.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    drawing.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    drawing.ui
+
+DISTFILES += \
+    read.me
+
+RESOURCES += \
+    picture.qrc

@@ -25,10 +25,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    timer2.cpp \
+    animation.cpp \
+    multianimation.cpp \
+    statemachine.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    timer2.h \
+    animation.h \
+    multianimation.h \
+    statemachine.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    timer2.ui \
+    animation.ui \
+    multianimation.ui \
+    statemachine.ui
+
+DISTFILES += \
+    Read.me
+
+STATECHARTS +=
