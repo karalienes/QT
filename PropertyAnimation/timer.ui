@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Timer2</class>
- <widget class="QDialog" name="Timer2">
+ <class>Timer</class>
+ <widget class="QWidget" name="Timer">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Form</string>
   </property>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>100</y>
+     <x>190</x>
+     <y>140</y>
      <width>113</width>
      <height>20</height>
     </rect>
