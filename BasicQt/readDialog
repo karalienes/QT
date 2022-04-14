@@ -20,3 +20,15 @@ Bir ön bildirim, C++ derleyicisini bir sınıfın varlığından -sınıf tanı
 Sınıf tanımının başlangıcındaki Q_OBJECT makrosu, sinyaller veya yuvalar tanımlanan tüm sınıflarda gereklidir.
 FindDialog’un kurucusu Qt parçacık sınıflarının tipik bir örneğidir. parent parametresi ebeveyn parçacığı belirtir.
 Varsayılan değeri, bu diyaloğun ebeveyne sahip olmadığı anlamına gelen boş(null) bir işaretçidir.
+
+
+signals kısmında, kullanıcı “Find” butonuna tıkladığında diyaloğun yayacağı 2 sinyalin bildirimi yapılır.
+Eğer “Search backward” seçeneği seçilmişse, diyalog findPrevious() sinyalini, aksi halde findNext() sinyalini yayar.
+Signals aslında bir makrodur. C++ önişlemcisi, derleyici onu görmeden önce, onu standart C++’a dönüştürür.
+Qt::CaseSensitivity ise, Qt::Sensitive ve Qt::Insensitive değerlerini alabilen bir enum tipidir.
+
+
+Sınıfın private(özel) kısmında 2 yuva bildirimi yaparız. Yuvaları gerçekleştirmek için, diyaloğun birçok çocuk parçacığına(child widget) erişmemiz gerekecek,
+bu nedenle de onları işaretçiler olarak tutarız. slots anahtar kelimesi de signals gibi bir makrodur. private değişkenler için, sınıflarının ön bildirimlerini kullandık.
+Bu mümkündü çünkü hepsi işaretçi ve onlara başlık dosyası içinde erişmeyeceğiz, bu nedenle derleyicinin sınıf tanımlarının tamamına ihtiyacı yoktur.
+Uygun başlık dosyalarını(, , vs.) dâhil edebilirdik, fakat ön bildirimleri kullanmak bir miktar daha hızlı derlenme sağlar.

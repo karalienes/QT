@@ -16,6 +16,7 @@ TEMPLATE = app
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
+DEFINES += QDESIGNER_EXPORT_WIDGETS
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -26,20 +27,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    yourage.cpp \
-    dialogexample1.cpp
+        yourage.cpp \
+        dialogexample1.cpp
 
 HEADERS += \
         mainwindow.h \
-    yourage.h \
-    dialogexample1.h
+        yourage.h \
+        dialogexample1.h
 
 FORMS += \
         mainwindow.ui \
-    yourage.ui \
-    dialogexample1.ui
+        yourage.ui \
+        dialogexample1.ui
 
 DISTFILES += \
-    readMain.me \
-    readYourAge.me \
-    readDialog
+        readMain.me \
+        readYourAge.me \
+        readDialog
