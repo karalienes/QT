@@ -1,0 +1,22 @@
+
+
+
+Bu bölüm, Qt’u kullanarak iletişim kutularının(dialog boxes) nasıl oluşturulduğunu öğretecek. İletişim kutuları kullanıcılara seçenekler sunar,
+kullanıcılara istedikleri değerleri verme ve kendi seçimlerini yapma izni verir. İletişim kutuları veya daha yaygın kullanılan ismiyle “diyaloglar”,
+bir anlamda kullanıcılar ile uygulamaların birbirleriyle “konuşmalarını” sağlar. Pek çok GUI uygulaması ana pencereyle birlikte bir menü çubuğu(menu bar),
+bir araç çubuğu(toolbar) ve düzinelerce diyalogdan meydana gelir. Kullanıcının seçimlerine direkt cevap veren diyalog uygulamaları
+oluşturmak da mümkündür(hesap makinesi uygulaması gibi). İlk diyaloğumuzu, nasıl yapıldığını göstermek için, yalnızca kod yazarak oluşturacağız.
+
+Daha sonra, diyalogların Qt’un görsel tasarım aracı Qt Designer ile nasıl oluşturulduğunu göreceğiz. Qt Designer’ı kullanmak elle kod yazmaktan çok daha hızlıdır
+ve farklı tasarımları test etmeyi ve daha sonra tasarımları değiştirmeyi kolaylaştırır.
+
+
+
+Satır 5, 6 ve 7,8  diyaloğu gerçekleştirirken kullanacağımız Qt sınıflarının ön bildirimlerini yapar.
+Bir ön bildirim, C++ derleyicisini bir sınıfın varlığından -sınıf tanımının tüm detaylarını vermeden(sınıf tanımları genellikle kendi başlık dosyasında yer alır)- haberdar eder.
+
+
+
+Sınıf tanımının başlangıcındaki Q_OBJECT makrosu, sinyaller veya yuvalar tanımlanan tüm sınıflarda gereklidir.
+FindDialog’un kurucusu Qt parçacık sınıflarının tipik bir örneğidir. parent parametresi ebeveyn parçacığı belirtir.
+Varsayılan değeri, bu diyaloğun ebeveyne sahip olmadığı anlamına gelen boş(null) bir işaretçidir.
