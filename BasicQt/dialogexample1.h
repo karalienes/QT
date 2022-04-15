@@ -6,6 +6,9 @@
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+
 
 
 namespace Ui {
@@ -14,11 +17,12 @@ class DialogExample1;
 
 class DialogExample1 : public QDialog
 {
-
+    Q_OBJECT
 public:
-    explicit DialogExample1(QWidget *parent = 0);
+    DialogExample1(QWidget *parent = 0);
     ~DialogExample1();
     void Func1();
+    void Func2();
 
 
 signals:

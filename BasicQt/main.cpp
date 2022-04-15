@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include "yourage.h"
+#include "dialogexample1.h"
 
 int main(int argc, char *argv[])
 {
@@ -26,6 +27,10 @@ int main(int argc, char *argv[])
 
     YourAge y;
     y.YourAgeFunc();
+
+
+
+
 
 
     return a.exec();

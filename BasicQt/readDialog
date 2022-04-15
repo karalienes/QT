@@ -32,3 +32,59 @@ Sınıfın private(özel) kısmında 2 yuva bildirimi yaparız. Yuvaları gerçe
 bu nedenle de onları işaretçiler olarak tutarız. slots anahtar kelimesi de signals gibi bir makrodur. private değişkenler için, sınıflarının ön bildirimlerini kullandık.
 Bu mümkündü çünkü hepsi işaretçi ve onlara başlık dosyası içinde erişmeyeceğiz, bu nedenle derleyicinin sınıf tanımlarının tamamına ihtiyacı yoktur.
 Uygun başlık dosyalarını(, , vs.) dâhil edebilirdik, fakat ön bildirimleri kullanmak bir miktar daha hızlı derlenme sağlar.
+
+
+
+dialogexample1.cpp bakarsak;
+
+
+İlk olarak, Qt’un GUI sınıflarının tanımını içeren başlık dosyasını, yani ’yi dâhil ederiz. Qt, her biri kendi kütüphanesinde bulunan değişik modüllerden meydana gelir.
+En önemli modüller QtCore, QtGui, QtNetwork, QtOpenGL, QtScript, QtSql, QtSv ve QtXml’dir. başlık dosyası, QtCore ve QtGui modüllerinin parçası olan tüm sınıfların tanımından meydana gelir.
+Bu başlık dosyasını dâhil etmek bizi her sınıfı tek tek dâhil etme zahmetinden kurtarır. finddialog.h içine ’u dâhil etme ve QCheckBox, QLabel, QLineEdit ve QPushButton’ın
+ön bildirimlerini kullanmak yerine, basitçe ’yi dâhil edebilirdik. Ancak genellikle, böylesine büyük bir başlık dosyasını dâhil etmek kötü bir tarzdır, özelliklede daha büyük uygulamalarda.
+
+
+Temel sınıfın kurucusuna parent parametresini aktarırız. Sonra, çocuk parçacıkları oluştururuz. Karakter katarı deyimleriyle yapılan tr() fonksiyonu çağrıları,
+karakter katarı deyimlerini diğer dillere çevirmek için işaretler. Bu fonksiyon, QObject içinde ve Q_OBJECT makrosunu içeren her altsınıfta bildirilmiştir.
+Uygulamalarınızı diğer dillere çevirmek için acil bir planınız olmasa bile, kullanıcıya görünen karakter katarı deyimlerini tr() ile çevrelemek iyi bir alışkanlıktır.
+Karakter katarı deyimlerinde, kısayol tuşları belirtmek için ‘&’ı kullanırız. Örneğin, kullanıcının - kısayolları destekleyen platformlarda- Alt+F tuş kombinasyonunu kullanarak
+aktif hale getirebileceği bir “Find” butonu oluşturur. ‘&’, odağı kontrol etmek için de kullanılabilir: Satır 6’da kısayol tuşuyla(Alt+W) birlikte bir etiket oluştururuz
+ve Satır 8’de de etiketin arkadaşını(label’s buddy) satır editörü(line editor) olarak ayarlarız. Arkadaş(buddy), etiketin kısayol tuşuna basıldığında odağı üstlenecek olan parçacıktır.
+Böylece, kullanıcı Alt+W tuş kombinasyonuna bastığında, odak satır editörüne (etiketin arkadaşı) kayar. SetDefault(true)’yu çağırarak “Find” butonunu diyaloğun
+varsayılan butonu(default button) yaparız. Varsayılan buton, kullanıcı “Enter”a bastığında etkilenecek butondur. “Find” butonunu devredışı bırakırız.
+Bir parçacık devredışı bırakıldığında, genelde gri gösterilir ve kullanıcı etkileşimine yanıt vermez.
+
+
+private yuva enableFindButton(const QString &), satır editöründeki metin değiştiğinde, diğer private yuva findClicked(), kullanıcı “Find” butonuna tıkladığında çağrılır.
+Kullanıcı “Close”a tıkladığında da diyalog kendini kapatır. close() yuvası QWidget’ten miras alınır ve varsayılan davranışı parçacığı -onu silmeden- gizlemektir.
+enableFindButton() ve findClicked() yuvalarının kodlarına daha sonra bakacağız.
+
+Sonra, yerleşim yöneticilerini(layout managers) kullanarak çocuk parçacıkları yerleştiririz. Yerleşimler (Layouts), parçacıkları ve diğer yerleşimleri içerebilirler.
+QHBoxLayout’ların, QVBoxLayout’ların ve QGridLayout’ların çeşitli kombinasyonlarını iç içe koyarak çok karmaşık diyaloglar oluşturmak mümkündür.
+
+Yerleşim yöneticisi sınıfları parçacık değildir. QObject’ten türetilmiş olan QLayout’tan türetilmişlerdir. Çalışan bir uygulamada, yerleşimler görünmezdir.
+
+
+
+Son olarak, diyaloğun başlık çubuğunda görüntülenecek olan pencere başlığını ve değişmez(fixed) bir pencere yüksekliği ayarlarız.
+QWidget::sizeHint() fonksiyonu ise bir parçacığın ideal boyutunu döndürür. Böylelikle FindDialog’un kurucusunun kritiğini bitirmiş olduk.
+Diyaloğun parçacıklarını ve yerleşimlerini new kullanarak oluşturduğumuz için, oluşturduğumuz her parçacık ve yerleşim için, delete diye adlandırılan
+bir yokedici(destructor) yazmamız gerekiyormuş gibi görülebilir. Fakat bu gereksizdir, çünkü ebeveyn yok edildiğinde, çocuk nesneler de Qt tarafından otomatik olarak silinirler.
+
+
+
+
+
+
+
+findClicked() yuvası, kullanıcı “Find” butonuna tıkladığında çağrılır. “Search backward” seçeneğine bağlı olarak findPrevious() veya findNext() sinyalini yayar.
+emit anahtar kelimesi Qt’a özgüdür; diğer Qt genişletmeleri(extensions) gibi C++ önişlemcisi tarafından standart C++’a çevrilir. enableFindButton() yuvası, satır editöründeki metin değiştiğinde çağrılır.
+Eğer satır editöründe metin varsa “Find” butonunu etkinleştirir, aksi halde devredışı bırakır.
+
+
+
+
+
+
+
+
