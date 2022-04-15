@@ -25,9 +25,8 @@ void DialogExample1::Func1()
     caseCheckBox = new QCheckBox(tr("Match &case"));
     backwardCheckBox = new QCheckBox(tr("Search &backward"));
 
-
+    closeButton =new QPushButton(tr("Close"));
     findButton = new QPushButton(tr("&Find"));
-    setMinimumSize(200,200);
     findButton->setDefault(true);
     findButton->setEnabled(false);
 
@@ -37,7 +36,7 @@ void DialogExample1::Func1()
     QObject::connect(findButton, SIGNAL(clicked(bool)),this,SLOT(findClicked()));
     QObject::connect(closeButton, SIGNAL(clicked(bool)),this, SLOT(close()));
 
-//    this->Func2();
+    this->Func2();
 
 }
 
@@ -52,10 +51,12 @@ void DialogExample1::Func2()
     topLeftLayout->addWidget(label);
     topLeftLayout->addWidget(lineEdit);
 
+
     QVBoxLayout *leftLayout = new  QVBoxLayout;
     leftLayout->addLayout(topLeftLayout);
     leftLayout->addWidget(caseCheckBox);
     leftLayout->addWidget(backwardCheckBox);
+
 
     QVBoxLayout *rightLayout = new QVBoxLayout;
     rightLayout->addWidget(findButton);
