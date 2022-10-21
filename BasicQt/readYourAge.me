@@ -1,0 +1,20 @@
+
+
+QWidget’ı uygulamanın ana penceresi olarak hizmet verecek şekilde ayarlar. Pencerenin başlık çubuğunda görüntülenen metni ayarlamak için setWindowTitle()
+fonksiyonunu çağırırız. QSpinBox ve bir QSlider oluşturur, ve onların geçerli değişim aralıklarını ayarlar.
+Bir kullanıcının en fazla 130 yaşında olabileceğini rahatlıkla varsayabiliriz.
+Burada window’u QSpinBox ve QSlider’ın kurucularına, bu parçacığın(window) onların(QSpinBox ve QSlider) ebeveyni olduğunu belirtmek için aktarabilirdik,
+fakat burada gereksizdir çünkü yerleşim sistemi(layout system) bunu bizzat kendisi düşünür ve döndürme kutusunun ve kaydırıcının ebeveynini otomatik olarak ayarlar.
+QObject::connect() çağrısı döndürme kutusunu ve kaydırıcıyı senkronize ederek her zaman aynı değeri göstermelerini sağlar.
+Bir parçacığın değeri değiştiğinde, onun valueChanged(int) sinyali yayılır ve diğer parçacığın setValue(int) yuvası yeni değer ile çağrılır.
+
+
+
+• QHBoxLayout, parçacıkları dikey(horizontal) olarak soldan sağa doğru yerleştirir(bazı kültürlerde sağdan sola).
+• QVBoxLayout, parçacıkları düşey(vertical) olarak en üstten aşağı doğru yerleştirir.
+• QGridLayout, parçacıkları bir ızgaraya(grid) yerleştirir.
+
+
+Hiçbir parçacığın boyutunu ya da konumunu açıkça ayarlamadığımız halde, QSpinBox ve QSlider yan yana hoş bir şekilde yerleşmiş görünüyor.
+Bunun nedeni, QHBoxLayout’un parçacıklara makul ölçüleri aşmayacak şekilde, otomatik olarak boyut ve konum tahsis etmesidir.
+Yerleşim yöneticileri bizi uygulamalarımızın ekran konumlarını kodlama angaryasından kurtarır ve pencerenin düzgünce yeniden boyutlandırılmasını sağlar.

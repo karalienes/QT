@@ -1,0 +1,13 @@
+
+Her zaman aynı parçacıkları gösteren diyaloglar oluşturmayı gördük.
+Bazı durumlarda, diyalogların şekil değiştirebilmesi arzu edilir. Şekil değiştiren diyalogların en çok bilinen iki türü genişleyen diyaloglar(extension dialogs) ve
+çok sayfalı diyaloglardır(multi-page dialogs). Her iki türden diyalog da Qt ile oluşturulabilir.
+
+Genişleyen diyaloglar genellikle basit bir görünüm sunarlar fakat kullanıcıya basit ve genişletilmiş görünümler arasında geçiş yapabilme imkânını veren iki konumlu butona(toggle button) sahiptir.
+Genişleyen diyaloglar çoğunlukla hem sıradan kullanıcılara hem de ileri düzey kullanıcılara hitap etmesi istenen uygulamalarda kullanılır.
+Bu kısımda, Qt Designer’ı Şekil 2.9’da görünen genişleyen diyaloğu oluşturmakta kullanacağız
+
+
+Diyalog, bir hesap çizelgesi(spreadsheet) uygulaması içindeki bir ya da birkaç sütunu sıralamak için kullanabileceği bir Sort(sıralama) diyaloğudur.
+Diyaloğun basit görünümü kullanıcıya tek bir sıralama anahtarı girmesine imkân verir. Genişletilmiş görünüm ise iki ekstra sıralama anahtarı daha sağlar.
+Bir More butonu kullanıcının basit ve genişletilmiş görünümler arasında geçiş yapmasına izin verir.
