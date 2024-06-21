@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2022-04-12T11:31:25
+# Project created by QtCreator 2022-04-13T16:02:42
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = PropertyAnimation
+TARGET = ExportingSVG
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,27 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    timer2.cpp \
-    animation.cpp \
-    multianimation.cpp \
-    statemachine.cpp
+        mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h \
-    timer2.h \
-    animation.h \
-    multianimation.h \
-    statemachine.h
+        mainwindow.h
 
 FORMS += \
-        mainwindow.ui \
-    timer2.ui \
-    animation.ui \
-    multianimation.ui \
-    statemachine.ui
-
-DISTFILES += \
-    Read.me
-
-STATECHARTS +=
+        mainwindow.ui

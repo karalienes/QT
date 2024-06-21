@@ -1,0 +1,31 @@
+
+
+Qt ve Unix terminolojisinde, bir parçacık kullanıcı arayüzünde görsel bir öğedir. Bu terimin kaynağı “window gadget”tir	ve bu terim Windows
+terminolojisindeki “control” ve	“container” ile	aynı anlamdadır. Butonlar(button),menüler(menu),kaydırma
+çubukları(scroll bar) ve çerçeveler(frame) parçacığa birer örnektirler.
+
+
+Parçacıklar başka parçacıklar içerebilirler; örneğin, bir uygulama penceresi genellikle bir QMenuBar, birkaç QToolBar, bir QStatusBar,
+ve bazı diğer parçacıkları içeren bir parçacıktır. Çoğu uygulama, uygulama penceresi olarak bir QMainWindow veya bir QDialog kullanır,
+fakat Qt oldukça esnektir, böylece herhangi bir parçacık pencere olarak kullanılabilir. Örneğimizde, QLabel parçacığı uygulama penceremizdir.
+
+
+return a.exec() durumunda;
+
+Uygulamanın kontrolü Qt’a geçer. Bu noktada, program olay döngüsüne(event loop) girer. Bu, programın bir kullanıcı eylemi için beklediği
+(fare tıkladığında veya bir tuşa basmak gibi) bir tür bekleme(stand-by) modudur. Kullanıcı eylemleri, programın cevaplayabildiği olayları(“mesajlar” diye de geçer) üretir
+ve bunlar genellikle bir ya da daha fazla fonksiyonun yürütülmesidir. Örneğin, kullanıcı bir parçacığı tıkladığında, bir “fare butonuna basılma(mouse press)” ve
+bir “fare serbest(mouse release)” olayları üretilir. Bu açıdan GUI uygulamaları, genellikle girdi işleyen, sonuçlar üreten ve bir insan müdahalesi
+olmadan sonlandırılan geleneksel toplu iş programlarından(batch programs) büyük ölçüde farklıdırlar.
+Sadelik olsun diye, main() fonksiyonunun sonunda QLabel nesnesi için delete’i çağırmadık. Bu bellek sızıntısı(memory leak) bunun gibi küçük bir program söz konusu olduğunda zararsızdır.
+Program sonlandırıldığında QLabel nesnesi için ayrılmış olan bellek işletim sistemi tarafından geri alınacaktır.
+
+
+
+
+Qt parçacıkları bir kullanıcı eylemini ya da ortaya çıkan bir durum değişikliğini işaret etmek için sinyaller(signal) yayar.[*]
+Örneğin, QPushButton kullanıcı butona tıkladığında bir clicked() sinyali yayar. Bir sinyal bir yuvaya bağlanmış olabilir,
+böylece bir sinyal yayıldığında, yuva otomatik olarak yürütülür. Bizim örneğimizde, butonun clicked() sinyalini
+QApplication nesnesinin quit() yuvasına bağladık. Buradaki SIGNAL() ve SLOT() makroları sözdiziminin birer parçalarıdır.
+
+[*] Qt sinyalleri Unix sinyalleriyle bağlantısızdır. Bu kitapta, biz yalnızca Qt sinyalleriyle ilgileneceğiz.

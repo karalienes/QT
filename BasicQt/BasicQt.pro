@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2022-04-12T11:31:25
+# Project created by QtCreator 2022-04-14T09:33:25
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = PropertyAnimation
+TARGET = BasicQt
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -16,6 +16,7 @@ TEMPLATE = app
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
+DEFINES += QDESIGNER_EXPORT_WIDGETS
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -26,26 +27,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    timer2.cpp \
-    animation.cpp \
-    multianimation.cpp \
-    statemachine.cpp
+        yourage.cpp \
+        dialogexample1.cpp
 
 HEADERS += \
         mainwindow.h \
-    timer2.h \
-    animation.h \
-    multianimation.h \
-    statemachine.h
+        yourage.h \
+        dialogexample1.h
 
 FORMS += \
         mainwindow.ui \
-    timer2.ui \
-    animation.ui \
-    multianimation.ui \
-    statemachine.ui
+        yourage.ui \
+        dialogexample1.ui
 
 DISTFILES += \
-    Read.me
-
-STATECHARTS +=
+        readMain.me \
+        readYourAge.me \
+        readDialog

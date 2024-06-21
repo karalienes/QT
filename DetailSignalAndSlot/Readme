@@ -1,0 +1,16 @@
+Qt’un ebeveyn-çocuk mekanizması QObject içinde gerçekleştirilir. Ebeveyni olan bir nesne oluşturduğumuzda
+(bir parçacık, geçerlilik denetleyicisi ya da herhangi başka türde bir şey), ebeveyn nesneyi çocuklarının listesine ekler.
+Ebeveyn silindiğinde, listedeki her bir çocuk da silinir. Çocuklar da kendi çocuklarını siler ve bu hiç çocuk kalmayıncaya dek devam eder.
+Ebeveyn-çocuk mekanizması bellek yönetimini(memory management) çok kolaylaştırır ve bellek sızıntıları riskini azaltır.
+
+delete’i çağırmamız gereken nesneler yalnızca new kullanarak oluşturduğumuz ebeveyni olmayan nesnelerdir.
+
+Ve ayrıca eğer bir çocuk nesneyi ebeveyninden önce silersek, Qt o nesneyi otomatik olarak ebeveyninin çocuklarının listesinden de silecektir.
+Parçacıklar için ebeveynlerin ek bir anlamı daha vardır: Çocuk parçacıklar ebeveynin alanı içinde görünürler.
+Ebeveyn parçacığı sildiğimizde, çocuk parçacık yalnızca bellekten silinmez, aynı zamanda ekrandan da silinir.
+
+
+
+Kurucunun sonunda, OK butonunu QDialog’un accept() yuvasına, Cancel butonunu da reject() yuvasına bağlarız.
+Her iki yuva da diyaloğu kapatır, fakat accept(), diyaloğun sonuç değerini 1’e eşit olan QDialog::Accepted’e, reject() ise diyaloğun sonuç değerini 0’a eşit olan QDialog::Rejected’e ayarlar.
+Diyaloğu kullanırken, bu sonucu kullanıcının OK’e tıkladığını görmek ve ona göre davranmak için kullanabiliriz
